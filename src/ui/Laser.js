@@ -7,7 +7,7 @@ Phaser.Physics.Arcade.Sprite
         this.setScale(2)
     }
     fire(x, y){
-        this.setPosition(x,y-50)
+        this.setPosition(x+40,y)
         this.setActive(true)
         this.setVisible(true)
     }
@@ -15,8 +15,8 @@ Phaser.Physics.Arcade.Sprite
         this.destroy()
     }
     update(time){
-        this.setVelocityY(-200)
-        if (this.y <-10){
+        this.setVelocityX(200)
+        if (this.x <-10){
             this.die()
         }
     }

@@ -8,8 +8,8 @@ Phaser.Physics.Arcade.Sprite
         this.speed = config.speed
         this.rotationVal = config.rotation
     }
-    spawn(positionX){
-        this.setPosition(positionX, -10)
+    spawn(positionY){
+        this.setPosition(620, positionY)
         this.setActive(true)
         this.setVisible(true)
     }
@@ -17,11 +17,11 @@ Phaser.Physics.Arcade.Sprite
         this.destroy()
     }
     update(time){
-        this.setVelocityY(this.speed)
+        this.setVelocityX(this.speed * -1)
         this.rotation += this.rotationVal
 
-        const gameHeight= this.scene.scale.height
-        if (this.y > gameHeight + 5){
+        // const gameHeight= this.scene.scale.height
+        if (this.x < -1){
             this.die()
         }
     }

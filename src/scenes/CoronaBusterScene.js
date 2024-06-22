@@ -210,7 +210,7 @@ Phaser.Scene{
             this.player.anims.play('turn')
         }
         //above there's code for moving player
-        if((this.shoot) && time > this.lastFired) {
+        if((this.shoot || this.cursor.space.isDown) && time > this.lastFired) {
             const laser = this.lasers.get(0, 0, 'laser')
             if (laser) {
                 laser.fire(this.player.x, this.player.y)
@@ -280,8 +280,8 @@ Phaser.Scene{
         }
         //@ts-ignore
         const handsanitizer = this.handsanitizer.get
-        (0,0, 'handsanitizer', config)
-        const positionY = Phaser.Math.Between(640,300)
+        (100,300, 'handsanitizer', config)
+        const positionY = Phaser.Math.Between(100,200)
         if(handsanitizer){
             handsanitizer.spawn(positionY)
         }
