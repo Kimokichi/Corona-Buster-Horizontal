@@ -7,8 +7,8 @@ import StartScene from './scenes/StartScene'
 const config = {
 	type: Phaser.AUTO,
 	parent: 'app',
-	width: 400,
-	height: 620,
+	width: 620,
+	height: 310,
 	physics: {
 		default: 'arcade',
 		arcade: {

@@ -14,11 +14,11 @@ export default class GameOverScene extends Phaser.Scene{
     }
     create(){
         this.add.image(200,320,'background')
-        this.add.image(200,200,'gameover')
-        this.add.text(100,300, 'Score: ' + this.score, {
+        this.add.image(310,100,'gameover')
+        this.add.text(230,175, 'Score: ' + this.score, {
             // @ts-ignore
             fontSize: '32px' , fill : 'black' })
-        this.replayButton = this.add.image(200,400,'replay-button')
+        this.replayButton = this.add.image(310,250,'replay-button')
                 .setInteractive().setScale(0.5)
         this.replayButton.once('pointerup', () => {
                     this.scene.start('corona-buster-scene')

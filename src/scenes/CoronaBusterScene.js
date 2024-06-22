@@ -191,22 +191,22 @@ Phaser.Scene{
     movePlayer(player,time){
         if (this.cursor.left.isDown || this.nav_left){
             this.player.setVelocityX(this.speed * -1)
-            this.player.anims.play('left',true)
-            this.player.setFlipX(false)
-        } else if (this.cursor.right.isDown || this.nav_left){
-            this.player.setVelocityX(this.speed)
-            this.player.anims.play('left',true)
-            this.player.setFlipX(false)
-        } else if (this.cursor.up.isDown){
-            this.player.setVelocityY(-100)
             this.player.anims.play('turn',true)
-            this.player.seFtlipX(false)
+            // this.player.setFlipX(false)
+        } else if (this.cursor.right.isDown || this.nav_right){
+            this.player.setVelocityX(this.speed)
+            this.player.anims.play('turn',true)
+            // this.player.setFlipX(false)
+        } else if (this.cursor.up.isDown){
+            this.player.setVelocityY(this.speed * -1)
+            this.player.anims.play('left',true)
+            this.player.setFlipY(false)
         } else if (this.cursor.down.isDown){
             this.player.setVelocityY(this.speed)
-            this.player.anims.play('turn',true)
-            this.player.setFlipX(false)
+            this.player.anims.play('right',true)
+            this.player.setFlipY(true)
         }else {
-            this.player.setVelocityX(0)
+            this.player.setVelocity(0,0)
             this.player.anims.play('turn')
         }
         //above there's code for moving player
@@ -237,7 +237,7 @@ Phaser.Scene{
         this.anims.create({
             key: 'right',
             frames: this.anims.generateFrameNumbers('player', {
-                start:1,end:2
+                start:2,end:1
             })
         })
         return player
@@ -281,9 +281,9 @@ Phaser.Scene{
         //@ts-ignore
         const handsanitizer = this.handsanitizer.get
         (0,0, 'handsanitizer', config)
-        const positionX = Phaser.Math.Between(70,330)
+        const positionY = Phaser.Math.Between(640,300)
         if(handsanitizer){
-            handsanitizer.spawn(positionX)
+            handsanitizer.spawn(positionY)
         }
     }
     increaseLife(player,handsanitizer){
